@@ -75,29 +75,20 @@ npm 安裝包列表
 目录结构：
 
 ```
-├── app
-│   ├── controller
-│   │   ├── test
-│   │   │   └── test.jsv
-│   ├── extend
-│   ├── lib
-│   ├── middleware
-│   ├── mocks
-│   ├── proxy
-│   ├── router.js
-│   ├── view
-│   └── web                               // 前端工程目录
-│       ├── asset                         // 存放公共js,css资源
-│       ├── framework                     // 前端公用部分，header,footer
-│       │   ├── inject
-│       │   └── vue                           // 与vue相关的公开代码
-│       │       ├── app.js                    // 前后端调用入口, 默认引入componet/directive/filter
-│       │       ├── component                 // 组件入口, 可以增加component目录,类似下面的directive
-│       │       ├── directive                 // directive 目录,存放各种directive组件
-│       │       └── filter                    // filter
-│       ├── html                              // 前端页面和webpack构建目录, 也就是webpack打包配置entryDir
-│       │   ├── home                          // 每个页面遵循目录名, js文件名, scss文件名, vue文件名相同
-│       │   │   ├── home.js                   // 服务器render渲染时, 传入 render('home/home.js', data)
-│       │   │   ├── home.scss
-│       │   │   ├── home.vue
+├── build
+├── client
+|   ├—— views      // 存放项目功能模块页面，根据路由配置分割子级目录
+|   ├── config     // 配置目录
+|   ├── store      // 存放数据获取的封装
+|   ├── components      // 存放非业务组件，或公用组件
+├── server
+├── .babelrc
+├── .editconfig
+├── .eslintrc
+├── .gitignore
+├── favicon.ico
+├── nodemon.json
+├── package-lock.json
+├── package.json
+└── README.md
 ```
