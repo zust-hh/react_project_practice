@@ -49,6 +49,23 @@ npm 安裝包列表
 * webpack-dev-server
 * cross-env 環境變量相關
 * react-hot-loader@next
+* axios
+* memory-fs 在内存读写文件
+* http-proxy-middleware 做代理
+* eslint
+* babel-eslint
+* eslint-config-airbnb
+* eslint-config-standard
+* eslint-loader
+* eslint-plugin-import
+* eslint-plugin-jsx-a11y
+* eslint-plugin-node
+* eslint-plugin-promise
+* eslint-plugin-react
+* eslint-plugin-standard
+* webpack-merge 合并webpack配置
+* serve-favicon
+* nodemon 服务端脚本
 
 常用配置：
 
