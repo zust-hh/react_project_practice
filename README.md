@@ -71,3 +71,33 @@ npm 安裝包列表
 
 * webpack dev server
 * Hot module replacement
+
+目录结构：
+
+```
+├── app
+│   ├── controller
+│   │   ├── test
+│   │   │   └── test.jsv
+│   ├── extend
+│   ├── lib
+│   ├── middleware
+│   ├── mocks
+│   ├── proxy
+│   ├── router.js
+│   ├── view
+│   └── web                               // 前端工程目录
+│       ├── asset                         // 存放公共js,css资源
+│       ├── framework                     // 前端公用部分，header,footer
+│       │   ├── inject
+│       │   └── vue                           // 与vue相关的公开代码
+│       │       ├── app.js                    // 前后端调用入口, 默认引入componet/directive/filter
+│       │       ├── component                 // 组件入口, 可以增加component目录,类似下面的directive
+│       │       ├── directive                 // directive 目录,存放各种directive组件
+│       │       └── filter                    // filter
+│       ├── html                              // 前端页面和webpack构建目录, 也就是webpack打包配置entryDir
+│       │   ├── home                          // 每个页面遵循目录名, js文件名, scss文件名, vue文件名相同
+│       │   │   ├── home.js                   // 服务器render渲染时, 传入 render('home/home.js', data)
+│       │   │   ├── home.scss
+│       │   │   ├── home.vue
+```
