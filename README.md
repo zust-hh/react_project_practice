@@ -38,11 +38,15 @@ npm 安裝包列表
 * webpack-cli
 * react
 * react-dom
+* react-router (包含react-router-native 和 react-router-dom)
+* react-router-dom
 * babel-loader
 * babel-core
 * babel-preset-es2015
 * babel-preset-es2015-loose
 * babel-preset-react
+* babel-preset-stage-1
+* babel-plugin-transform-decorators-legacy
 * html-webpack-plugin
 * rimraf node用於刪除文件
 * express
@@ -66,6 +70,12 @@ npm 安裝包列表
 * webpack-merge 合并webpack配置
 * serve-favicon
 * nodemon 服务端脚本
+* mobx
+* mobx-react
+* prop-types
+* body-parser 转化请求body
+* express-session
+* query-string
 
 常用配置：
 

@@ -4,6 +4,9 @@ module.exports = {
     path: path.join(__dirname, '../dist'),
     publicPath: '/public/', // 打包的靜態文件前綴文件夾，用於和其他api或cdn區分
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   // 需要import一些非原生js，需要進行loader的操作
   module: {
     rules: [
