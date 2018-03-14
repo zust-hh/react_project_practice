@@ -5,7 +5,9 @@ import {
   inject,
 } from 'mobx-react'
 import PropTypes from 'prop-types'
-import { AppState } from '../../store/app.state'
+import Helmet from 'react-helmet'
+import { AppState } from '../../store/app-state'
+import { resolve } from 'path';
 
 @inject('appState') @observer
 
@@ -14,8 +16,18 @@ export default class TopicList extends React.Component {
     super()
     this.changeName = this.changeName.bind(this)
   }
+
   componentDidMount() {
     // do something here
+  }
+
+  asyncBootstrap() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        this.props.appState.count = 3
+        resolve(true)
+      })
+    })
   }
 
   changeName(event) {
@@ -25,6 +37,10 @@ export default class TopicList extends React.Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>This is topic list</title>
+          <meta name="description" content="This is description"/>
+        </Helmet>
         <input type="text" onChange={this.changeName} />
         <span>{this.props.appState.msg}</span>
       </div>
@@ -33,5 +49,5 @@ export default class TopicList extends React.Component {
 }
 
 TopicList.PropTypes = {
-  appState: PropTypes.instanceOf(AppState).isRequired,
+  appState: PropTypes.instanceOf(AppState),
 }

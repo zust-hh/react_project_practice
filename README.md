@@ -76,6 +76,11 @@ npm 安裝包列表
 * body-parser 转化请求body
 * express-session
 * query-string
+* react-async-bootstrapper
+* ejs-compiled-loader
+* ejs
+* serialize-javascript 序列化javascript对象
+* react-helmet 在react jsx中定制html头部 优化SEO
 
 常用配置：
 

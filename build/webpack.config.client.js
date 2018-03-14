@@ -18,18 +18,24 @@ const config = webpackMerge(baseConfig, {
   plugins: [
     new HTMLPlugin({
       template: path.join(__dirname, '../client/template.html')
-    }) // 自動生成html，并引用打包工具
+    }), // 自動生成html，并引用打包工具
+    new HTMLPlugin({
+      template: '!!ejs-compiled-loader!' + path.join(__dirname, '../client/server.template.ejs'),
+      filename: 'server.ejs'
+    })
   ]
 })
 
 if (isDev) {
   config.entry = {
     app: [
-      'react-hot-loader/patch', path.join(__dirname, '../client/app.js')
+      'react-hot-loader/patch',
+      path.join(__dirname, '../client/app.js')
     ]
   }
   config.devServer = {
     host: '0.0.0.0',
+    compress: true,
     port: '8888',
     contentBase: path.join(__dirname, '../dist'),
     hot: true,
@@ -39,11 +45,12 @@ if (isDev) {
     publicPath: '/public/',
     historyApiFallback: {
       index: '/public/index.html'
+    },
+    proxy: {
+      '/api': 'http://localhost:3333'
     }
   }
-  config
-    .plugins
-    .push(new webpack.HotModuleReplacementPlugin())
+  config.plugins.push(new webpack.HotModuleReplacementPlugin())
 }
 
 module.exports = config

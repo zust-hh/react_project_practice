@@ -1,32 +1,35 @@
 /* 与cnode api 的代理接口 */
 
 const axios = require('axios')
+const querystring = require('query-string')
 
-const baseUrl = 'http://cnodejs.org/api/v1'
+const baseUrl = 'https://cnodejs.org/api/v1'
 
 module.exports = function (req, res, next) {
   const path = req.path
-  const user = req.session.user
+  const user = req.session.user || {}
   const needAccessToken = req.query.needAccessToken
 
-  if (needAccessToken && user.accessToken) {
+  if (needAccessToken && !user.accessToken) {
     res.status(401).send({
       success: false,
       msg: 'need login'
     })
   }
 
-  const query = Object.assign({}, req.query)
+  const query = Object.assign({}, req.query, {
+    accesstoken: (needAccessToken && req.method === 'GET') ? user.accessToken : ''
+  })
   if (query.needAccessToken) delete query.needAccessToken
 
   axios(`${baseUrl}${path}`, {
     method: req.method,
     params: query,
-    data: Object.assign({}, req.body, {
-      accesstoken: user.accessToken
-    }),
+    data: querystring.stringify(Object.assign({}, req.body, {
+      accesstoken: (needAccessToken && req.method === 'POST') ? user.accessToken : ''
+    })),
     headers: {
-      'Content-Type': 'application/x-www-form-urlencode'
+      'Content-Type': 'application/x-www-form-urlencoded'
     }
   }).then(resp => {
     if (resp.status === 200) {
