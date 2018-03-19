@@ -17,7 +17,8 @@ module.exports = (bundle, template, req, res) => {
     const createApp = bundle.default
     const routeContext = {}
     const stores = createStoreMap()
-    const app = createApp(stores, routeContext. req.url)
+    console.log(req.url);
+    const app = createApp(stores, routeContext, req.url)
 
     asyncBootstrap(app).then(() => {
       if (routeContext.url) {
