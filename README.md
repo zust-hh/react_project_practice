@@ -81,6 +81,10 @@ npm 安裝包列表
 * ejs
 * serialize-javascript 序列化javascript对象
 * react-helmet 在react jsx中定制html头部 优化SEO
+* material-ui
+* material-ui-icons
+* react-jss
+* classnames
 
 常用配置：
 

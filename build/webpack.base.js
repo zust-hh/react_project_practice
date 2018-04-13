@@ -2,7 +2,7 @@ const path = require('path')
 module.exports = {
   output: {
     path: path.join(__dirname, '../dist'),
-    publicPath: '/public/', // 打包的靜態文件前綴文件夾，用於和其他api或cdn區分
+    publicPath: '/public/' // 打包的靜態文件前綴文件夾，用於和其他api或cdn區分
   },
   resolve: {
     extensions: ['.js', '.jsx']

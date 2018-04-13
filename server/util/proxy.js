@@ -1,9 +1,7 @@
-/* 与cnode api 的代理接口 */
-
 const axios = require('axios')
 const querystring = require('query-string')
 
-const baseUrl = 'https://cnodejs.org/api/v1'
+const baseUrl = 'http://cnodejs.org/api/v1'
 
 module.exports = function (req, res, next) {
   const path = req.path
@@ -47,5 +45,4 @@ module.exports = function (req, res, next) {
       })
     }
   })
-
 }

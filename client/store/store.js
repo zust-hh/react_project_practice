@@ -1,12 +1,13 @@
-import AppStateClass from './app-state'
+import AppState from './app-state'
+import TopicStore from './topic-store'
 
-/* eslint-disable */
-export const AppState = AppStateClass
+export { AppState, TopicStore }
 
-export default { AppState }
+export default { AppState, TopicStore }
 
 export const createStoreMap = () => {
   return {
     appState: new AppState(),
+    topicStore: new TopicStore(),
   }
 }
