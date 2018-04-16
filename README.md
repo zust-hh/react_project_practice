@@ -85,6 +85,8 @@ npm 安裝包列表
 * material-ui-icons
 * react-jss
 * classnames
+* marked 把markdown格式内容转化为html
+* dateformat 时间格式化
 
 常用配置：
 

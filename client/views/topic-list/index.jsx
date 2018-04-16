@@ -28,7 +28,7 @@ import { tabs } from '../../util/variable-define'
 export default class TopicList extends React.Component {
   static contextTypes = {
     router: PropTypes.object,
-  } 
+  }
 
   constructor() {
     super()
@@ -69,8 +69,8 @@ export default class TopicList extends React.Component {
     })
   }
 
-  listItemClick = () => {
-    console.log(1);
+  listItemClick = (topic) => {
+    this.context.router.history.push(`/detail/${topic.id}`)
   }
 
   render() {
@@ -86,7 +86,7 @@ export default class TopicList extends React.Component {
       username: 'hh',
       reply_count: 20,
       visit_count: 30,
-      create_at :'sdsadsd',
+      create_at: 'sdsadsd',
       tab: 'share',
     }
 
@@ -94,7 +94,7 @@ export default class TopicList extends React.Component {
       <Container>
         <Helmet>
           <title>This is topic list</title>
-          <meta name="description" content="This is description"/>
+          <meta name="description" content="This is description" />
         </Helmet>
         <Tabs value={tab} onChange={this.changeTab}>
           {
@@ -105,20 +105,20 @@ export default class TopicList extends React.Component {
         </Tabs>
         <List>
           {
-            topicList.map(topic => <TopicListItem onClick={this.listItemClick} topic={topic} />)
+            topicList.map(topic => <TopicListItem onClick={() => this.listItemClick(topic)} topic={topic} />)
           }
         </List>
         {
-          syncingTopics ? 
-          (
-            <div style={{
-              display: 'flex',
-              justifyContent: 'space-around',
-              padding: '40px 0',
-            }}>
-              <CircularProgress color="accent" size={100} />
-            </div>
-          ) : null
+          syncingTopics ?
+            (
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-around',
+                padding: '40px 0',
+              }}>
+                <CircularProgress color="accent" size={100} />
+              </div>
+            ) : null
         }
       </Container>
     )

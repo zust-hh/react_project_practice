@@ -11,6 +11,7 @@ const parseUrl = (url, params) => {
 }
 
 export const get = (url, params) => {
+  params = params || {}
   return new Promise((resolve, reject) => {
     axios.get(parseUrl(url, params))
       .then((resp) => {
